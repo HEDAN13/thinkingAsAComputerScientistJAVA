@@ -1,9 +1,15 @@
 public class Nombre {
     public static void main(String[] args) {
-        String nombre = "abecedo";
-        String otro = "ABECEDu";
-        
-        System.out.println(compararNombre(nombre, otro));
+        String nombre = "Carlos Addams";
+        String otro = "Addams, Carlos";
+        String nombreCodificado = capitanCrunch(otro, 13);
+        String nombreDecodificado = capitanCrunch(nombreCodificado, 13);
+
+
+        System.out.println(compararNombre(otro, nombreDecodificado));
+        System.out.println(compararNombre(otro, convertirNombre(nombre)));
+        System.out.println(nombreCodificado);
+        System.out.println(nombreDecodificado);
     }
 
     public static boolean tieneComa(String s) {
@@ -23,5 +29,21 @@ public class Nombre {
             return 0;
         }
         return comparacion/Math.abs(comparacion);
+    }
+
+    public static String capitanCrunch(String s, int codigo) {
+        int i = 0;
+        String resultado = "";
+        
+        while (i < s.length()) {
+            if (!Character.isLetter(s.charAt(i))) {
+                resultado += s.charAt(i);
+            } else {
+                char base = Character.isLowerCase(s.charAt(i)) ? 'a' : 'A';
+                resultado += (char) (((s.charAt(i) - base + codigo) % 26) + base) ;
+            }
+            i++;
+        }
+        return resultado;
     }
 }
