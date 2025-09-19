@@ -1,4 +1,18 @@
-public class fecha {
+public class Fecha {
+    int anio, mes, dia;
+
+    public Fecha() {
+        this.anio = 1;
+        this.mes = 1;
+        this.dia = 1;
+    }
+
+    public Fecha(int anio, int mes, int dia) {
+        this.anio = anio;
+        this.mes = mes;
+        this.dia = dia;
+    }
+
     public static void main(String[] args) {
         String diaDeLaSemana, mes;
         int diaDelMes, anio;
@@ -19,5 +33,10 @@ public class fecha {
         System.out.println(diaDeLaSemana + ", " + mes + " " + diaDelMes + ", " + anio);
         System.out.println("Formato europeo:");
         System.out.println(diaDeLaSemana + " " + diaDelMes + " " + mes + ", " + anio);
+
+        Fecha nacimiento = new Fecha(1989, 6, 16);
+
+        System.out.print("Fecha de nacimiento: ");
+        System.out.println(nacimiento.dia + "/" + nacimiento.mes + "/" + nacimiento.anio);
     }
 }
